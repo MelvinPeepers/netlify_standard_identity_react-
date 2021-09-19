@@ -1,21 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          React - Login
         </p>
+        <div data-netlify-identity-menu></div>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://docs.netlify.com/visitor-access/identity/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Netlify Identity
         </a>
       </header>
     </div>
