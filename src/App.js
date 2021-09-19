@@ -8,14 +8,14 @@ function App() {
           React - Login
         </p>
         <div data-netlify-identity-menu></div>
-        <a
-          className="App-link"
-          href="https://docs.netlify.com/visitor-access/identity/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Netlify Identity
-        </a>
+          <a
+            className="App-link"
+            href="https://docs.netlify.com/visitor-access/identity/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Netlify Identity
+          </a>
       </header>
     </div>
   );
