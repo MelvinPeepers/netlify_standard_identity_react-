@@ -5,11 +5,28 @@ netlifyIdentity.init();
 
 function App() {
 
-  const loginWidget = () => {
+  const openLoginWidget = () => {
     netlifyIdentity.open('login');
   }
-  const signupWidget = () => {
-    netlifyIdentity.open('signup');
+
+  const callFunction = () => {
+    const user = netlifyIdentity.currentUser();
+    console.log(user)
+    fetch("/.netlify/functions/protected-function", user && {
+      headers : {
+        Authorization: "Bearer " + user.token.access_token
+      }
+    })
+    .then(x => {
+      return x.json()
+    })
+    .then(res => {
+      if(res.data === "NOT ALLOWED") {
+        netlifyIdentity.open('login');
+      } else {
+        alert(res.data)
+      }
+    })
   }
 
   return (
@@ -18,8 +35,8 @@ function App() {
         <p>
           React - Login
         </p>
-        <button onClick={signupWidget}>Sign up</button>
-        <button onClick={loginWidget}>Login</button>
+        <button onClick={openLoginWidget}>{"Log in"}</button>
+        <button onClick={callFunction}>{"Call Function"}</button>
         <a
           className="App-link"
           href="https://docs.netlify.com/visitor-access/identity/"
